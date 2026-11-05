@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventana Satélite</title>
+</head>
+<body>
+
+    <h1>Ventana Satélite</h1>
+
+    <p id="bienvenida">Detectando sistema operativo...</p>
+
+    <button onclick="redirigirConHistorial()">
+        Redirigir con Historial
+    </button>
+
+    <button onclick="redirigirSinHistorial()">
+        Redirigir sin Historial
+    </button>
+
+    <script>
+                
+        // Obtenemos la información del navegador
+        const agente = navigator.userAgent;
+
+        // Identificamos el sistema operativo
+        let sistema = "desconocido";
+
+        if (agente.includes("Windows")) {
+            sistema = "Windows";
+        } else if (agente.includes("Mac")) {
+            sistema = "Mac";
+        } else if (agente.includes("Linux")) {
+            sistema = "Linux";
+        }
+
+        // Mostramos un mensaje personalizado
+        document.getElementById("bienvenida").textContent ="¡Bienvenido! Estás utilizando " + sistema;
+
+        
+        // Redirigir conservando el historial
+        function redirigirConHistorial() {
+            window.opener.location.assign("https://www.ilerna.es");
+        }
+
+        // Redirigir sustituyendo el historial
+        function redirigirSinHistorial() {
+            window.opener.location.replace("https://www.ilerna.es/");
+        }
+
+    </script>
+
+</body>
+</html>
