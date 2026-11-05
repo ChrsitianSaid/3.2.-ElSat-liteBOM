@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Ventana Satélite</title>
 </head>
 <body>
@@ -21,11 +22,8 @@
     </button>
 
     <script>
-                
-        // Obtenemos la información del navegador
-        const agente = navigator.userAgent;
 
-        // Identificamos el sistema operativo
+        const agente = navigator.userAgent;
         let sistema = "desconocido";
 
         if (agente.includes("Windows")) {
@@ -36,21 +34,45 @@
             sistema = "Linux";
         }
 
-        // Mostramos un mensaje personalizado
         document.getElementById("bienvenida").textContent ="¡Bienvenido! Estás utilizando " + sistema;
 
         
-        // Redirigir conservando el historial
         function redirigirConHistorial() {
             window.opener.location.assign("https://www.ilerna.es");
         }
 
-        // Redirigir sustituyendo el historial
         function redirigirSinHistorial() {
             window.opener.location.replace("https://www.ilerna.es/");
         }
 
+        function autodestruir() {
+            // Tiempo inicial
+            let segundos = 5;
+            // Mostramos el primer mensaje
+            document.getElementById("cuentaAtras").textContent ="La ventana se cerrará en " + segundos + " segundos...";
+
+            // Ejecutamos la cuenta atrás cada segundo
+            const intervalo = setInterval(function() {
+                segundos--;
+                if (segundos > 0) {
+                    document.getElementById("cuentaAtras").textContent = "La ventana se cerrará en " + segundos + " segundos...";
+                } else {
+                    clearInterval(intervalo);
+                    window.close();
+                }
+            }, 1000);
+        }
+
+
     </script>
+
+    
+    <button onclick="autodestruir()">
+        Autodestrucción en 5 segundos
+    </button>
+
+    <p id="cuentaAtras"></p>
+
 
 </body>
 </html>
