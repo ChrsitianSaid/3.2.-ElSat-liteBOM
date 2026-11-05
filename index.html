@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>ventana principal - práctica boom</title>
+</head>
+<body>
+    <div id="titulo">
+        <h1> PRACTICA BOOM | VENTANAS DEL NAVEGADOR </h1>
+    </div>
+
+    <div id="boton">
+        <p> Pulse el botón para abrir una nueva ventana.</p>
+        <button onclick="lanzarSatelite()">Lanzar Satélite</button>
+    </div>
+
+    <!--logica de javascript-->
+    <script>
+        function lanzarSatelite() {
+
+            // Dimensiones de la ventana satélite
+            const ancho = 400;
+            const alto = 300;
+
+            // Dimensiones disponibles de la pantalla
+            const pantallaX = screen.availWidth;
+            const pantallaY = screen.availHeight;
+
+            // Calculamos la posición centrada
+            const posicionX = (pantallaX - ancho) / 2;
+            const posicionY = (pantallaY - alto) / 2;
+
+            // Características de la ventana
+            const caracteristicas = `width=${ancho},height=${alto},left=${posicionX},top=${posicionY}`;
+
+            // Abrimos la ventana satélite
+            window.open("satelite.html", "_blank", caracteristicas);
+}
+    </script>
+</body>
+</html>
