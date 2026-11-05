@@ -1,5 +1,7 @@
 # 3.2.-ElSat-liteBOM
 
+gitPage: https://chrsitiansaid.github.io/3.2.-ElSat-liteBOM/
+
 # 🛰️ Práctica BOM – Ventanas del navegador
 
 ## 📌 Descripción del proyecto
