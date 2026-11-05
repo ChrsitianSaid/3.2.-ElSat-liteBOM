@@ -129,4 +129,3 @@ Durante el desarrollo de esta práctica se han trabajado los siguientes concepto
 - Métodos `location.assign()` y `location.replace()`.
 - Temporizadores `setTimeout()` y `setInterval()`.
 - Método `window.close()`.
-
